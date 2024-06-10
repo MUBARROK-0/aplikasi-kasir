@@ -1,0 +1,16 @@
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\aplikasi_kasir.exe
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\aplikasi_kasir.deps.json
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\aplikasi_kasir.runtimeconfig.json
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\aplikasi_kasir.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\aplikasi_kasir.pdb
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.Form1.resources
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.vbproj.GenerateResource.cache
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.AssemblyInfoInputs.cache
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.AssemblyInfo.vb
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.vbproj.CoreCompileInputs.cache
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\refint\aplikasi_kasir.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.pdb
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.genruntimeconfig.cache
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\ref\aplikasi_kasir.dll
