@@ -49,7 +49,7 @@ Partial Class Form1
         ' 
         Button1.Location = New Point(514, 39)
         Button1.Name = "Button1"
-        Button1.Size = New Size(210, 85)
+        Button1.Size = New Size(436, 85)
         Button1.TabIndex = 2
         Button1.Text = "BELI"
         Button1.UseVisualStyleBackColor = True
@@ -78,14 +78,14 @@ Partial Class Form1
         DataGridView1.Location = New Point(179, 152)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(545, 225)
+        DataGridView1.Size = New Size(771, 225)
         DataGridView1.TabIndex = 5
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 581)
+        ClientSize = New Size(1039, 581)
         Controls.Add(DataGridView1)
         Controls.Add(Label2)
         Controls.Add(Label1)

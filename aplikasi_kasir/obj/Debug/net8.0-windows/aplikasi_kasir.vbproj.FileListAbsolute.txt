@@ -14,3 +14,15 @@ C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-w
 C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.pdb
 C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.genruntimeconfig.cache
 C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\ref\aplikasi_kasir.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\runtimes\freebsd\lib\net8.0\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\runtimes\illumos\lib\net8.0\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\runtimes\ios\lib\net8.0\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\runtimes\linux\lib\net8.0\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\runtimes\osx\lib\net8.0\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\runtimes\solaris\lib\net8.0\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\runtimes\tvos\lib\net8.0\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.Odbc.dll
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.vbproj.AssemblyReference.cache
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi_kasir.sourcelink.json
+C:\Users\rizqi mubarrok\desktop\aplikasi_kasir\aplikasi_kasir\obj\Debug\net8.0-windows\aplikasi.1953BA4E.Up2Date
