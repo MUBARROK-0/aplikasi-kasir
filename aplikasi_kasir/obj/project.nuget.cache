@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wFhzY3G7eGLvOcComw/CdTtR8xDypSUuPYGgS90HOJd6I2nb1vH7gxl3GAiSb4mAqOOK/kbMtwdQgiKxoKQkGQ==",
+  "dgSpecHash": "hug9y2bDX4ArfW0zGmdnLN9oOI+OIOCDG7pp96RTxlyzRbZnU/fpn5tgU92piWLVN0D5RmWoBJuF3PUvdsWqog==",
   "success": true,
   "projectFilePath": "C:\\Users\\rizqi mubarrok\\desktop\\aplikasi_kasir\\aplikasi_kasir\\aplikasi_kasir.vbproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rizqi mubarrok\\.nuget\\packages\\system.data.odbc\\8.0.0\\system.data.odbc.8.0.0.nupkg.sha512",
+    "C:\\Users\\rizqi mubarrok\\.nuget\\packages\\system.text.encoding.codepages\\8.0.0\\system.text.encoding.codepages.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

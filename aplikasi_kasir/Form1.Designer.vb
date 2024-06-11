@@ -28,7 +28,6 @@ Partial Class Form1
         Label1 = New Label()
         Label2 = New Label()
         DataGridView1 = New DataGridView()
-        Button2 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -82,21 +81,11 @@ Partial Class Form1
         DataGridView1.Size = New Size(545, 225)
         DataGridView1.TabIndex = 5
         ' 
-        ' Button2
-        ' 
-        Button2.Location = New Point(325, 444)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(112, 34)
-        Button2.TabIndex = 6
-        Button2.Text = "Button2"
-        Button2.UseVisualStyleBackColor = True
-        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 581)
-        Controls.Add(Button2)
         Controls.Add(DataGridView1)
         Controls.Add(Label2)
         Controls.Add(Label1)
@@ -116,6 +105,5 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button2 As Button
 
 End Class
