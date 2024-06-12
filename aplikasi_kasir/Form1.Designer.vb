@@ -33,6 +33,8 @@ Partial Class Form1
         Label4 = New Label()
         RadioButton1 = New RadioButton()
         RadioButton2 = New RadioButton()
+        ComboBox1 = New ComboBox()
+        Label5 = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -45,7 +47,7 @@ Partial Class Form1
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(217, 175)
+        TextBox2.Location = New Point(217, 222)
         TextBox2.Name = "TextBox2"
         TextBox2.Size = New Size(304, 31)
         TextBox2.TabIndex = 1
@@ -54,7 +56,7 @@ Partial Class Form1
         ' 
         Button1.Location = New Point(577, 39)
         Button1.Name = "Button1"
-        Button1.Size = New Size(373, 167)
+        Button1.Size = New Size(373, 214)
         Button1.TabIndex = 2
         Button1.Text = "BELI"
         Button1.UseVisualStyleBackColor = True
@@ -71,7 +73,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(71, 175)
+        Label2.Location = New Point(71, 222)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 25)
         Label2.TabIndex = 4
@@ -80,10 +82,10 @@ Partial Class Form1
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(179, 372)
+        DataGridView1.Location = New Point(217, 313)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(771, 225)
+        DataGridView1.Size = New Size(733, 225)
         DataGridView1.TabIndex = 5
         ' 
         ' Label3
@@ -133,11 +135,31 @@ Partial Class Form1
         RadioButton2.Text = "Kaleng"
         RadioButton2.UseVisualStyleBackColor = True
         ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"Kecil", "Sedang", "Besar"})
+        ComboBox1.Location = New Point(217, 173)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(304, 33)
+        ComboBox1.TabIndex = 11
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(22, 173)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(148, 25)
+        Label5.TabIndex = 12
+        Label5.Text = "Ukuran Minuman"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1039, 751)
+        Controls.Add(Label5)
+        Controls.Add(ComboBox1)
         Controls.Add(RadioButton2)
         Controls.Add(RadioButton1)
         Controls.Add(Label4)
@@ -167,5 +189,7 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label5 As Label
 
 End Class

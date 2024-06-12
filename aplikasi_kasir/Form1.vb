@@ -11,6 +11,9 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call Koneksi()
         Call TampilBarang()
+        ComboBox1.Items.Add("kecil")
+        ComboBox1.Items.Add("sedang")
+        ComboBox1.Items.Add("besar")
     End Sub
 
     Sub Koneksi()
@@ -42,29 +45,33 @@ Public Class Form1
             Return
         End If
 
+        Dim ukuran As String = ComboBox1.SelectedItem.ToString()
+
         If merk <> "" Then
-            If Not MerkExists(merk, varian) Then
+            If Not MerkExists(merk, varian, ukuran) Then
                 MessageBox.Show("Merk tidak tersedia", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
         End If
 
         ' Kurangi stok barang
-        cmd = New OdbcCommand("UPDATE tb_barang SET stok_barang = stok_barang - ? WHERE id_minuman = ? AND varian_minuman = ?", conn)
+        cmd = New OdbcCommand("UPDATE tb_barang SET stok_barang = stok_barang - ? WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
         cmd.Parameters.AddWithValue("stok", jumlah)
         cmd.Parameters.AddWithValue("id", id)
         cmd.Parameters.AddWithValue("varian", varian)
+        cmd.Parameters.AddWithValue("ukuran", ukuran)
         cmd.ExecuteNonQuery()
 
 
         ' Refresh data grid
         Call TampilBarang()
     End Sub
-    Function MerkExists(ByVal merk As String, ByVal varian As String) As Boolean
+    Function MerkExists(ByVal merk As String, ByVal varian As String, ByVal ukuran As String) As Boolean
         Dim exists As Boolean = False
-        cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_barang WHERE merk_minuman = ? AND varian_minuman = ?", conn)
+        cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_barang WHERE merk_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
         cmd.Parameters.AddWithValue("merk", merk)
         cmd.Parameters.AddWithValue("varian", varian)
+        cmd.Parameters.AddWithValue("ukuran", ukuran)
         exists = Convert.ToInt32(cmd.ExecuteScalar()) > 0
         Return exists
     End Function
