@@ -30,28 +30,31 @@ Partial Class Form1
         DataGridView1 = New DataGridView()
         Label3 = New Label()
         TextBox3 = New TextBox()
+        Label4 = New Label()
+        RadioButton1 = New RadioButton()
+        RadioButton2 = New RadioButton()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(179, 39)
+        TextBox1.Location = New Point(217, 39)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(304, 31)
         TextBox1.TabIndex = 0
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(179, 129)
+        TextBox2.Location = New Point(217, 175)
         TextBox2.Name = "TextBox2"
         TextBox2.Size = New Size(304, 31)
         TextBox2.TabIndex = 1
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(514, 39)
+        Button1.Location = New Point(577, 39)
         Button1.Name = "Button1"
-        Button1.Size = New Size(436, 121)
+        Button1.Size = New Size(373, 167)
         Button1.TabIndex = 2
         Button1.Text = "BELI"
         Button1.UseVisualStyleBackColor = True
@@ -59,7 +62,7 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(60, 42)
+        Label1.Location = New Point(60, 39)
         Label1.Name = "Label1"
         Label1.Size = New Size(110, 25)
         Label1.TabIndex = 3
@@ -68,7 +71,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(71, 129)
+        Label2.Location = New Point(71, 175)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 25)
         Label2.TabIndex = 4
@@ -77,7 +80,7 @@ Partial Class Form1
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(179, 215)
+        DataGridView1.Location = New Point(179, 372)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
         DataGridView1.Size = New Size(771, 225)
@@ -86,7 +89,7 @@ Partial Class Form1
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(38, 84)
+        Label3.Location = New Point(38, 81)
         Label3.Name = "Label3"
         Label3.Size = New Size(132, 25)
         Label3.TabIndex = 6
@@ -94,16 +97,50 @@ Partial Class Form1
         ' 
         ' TextBox3
         ' 
-        TextBox3.Location = New Point(179, 84)
+        TextBox3.Location = New Point(217, 81)
         TextBox3.Name = "TextBox3"
         TextBox3.Size = New Size(304, 31)
         TextBox3.TabIndex = 7
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(30, 129)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(140, 25)
+        Label4.TabIndex = 8
+        Label4.Text = "Varian Minuman"
+        ' 
+        ' RadioButton1
+        ' 
+        RadioButton1.AutoSize = True
+        RadioButton1.Location = New Point(217, 129)
+        RadioButton1.Name = "RadioButton1"
+        RadioButton1.Size = New Size(79, 29)
+        RadioButton1.TabIndex = 9
+        RadioButton1.TabStop = True
+        RadioButton1.Text = "Botol"
+        RadioButton1.UseVisualStyleBackColor = True
+        ' 
+        ' RadioButton2
+        ' 
+        RadioButton2.AutoSize = True
+        RadioButton2.Location = New Point(346, 131)
+        RadioButton2.Name = "RadioButton2"
+        RadioButton2.Size = New Size(90, 29)
+        RadioButton2.TabIndex = 10
+        RadioButton2.TabStop = True
+        RadioButton2.Text = "Kaleng"
+        RadioButton2.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1039, 581)
+        ClientSize = New Size(1039, 751)
+        Controls.Add(RadioButton2)
+        Controls.Add(RadioButton1)
+        Controls.Add(Label4)
         Controls.Add(TextBox3)
         Controls.Add(Label3)
         Controls.Add(DataGridView1)
@@ -127,5 +164,8 @@ Partial Class Form1
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents RadioButton2 As RadioButton
 
 End Class

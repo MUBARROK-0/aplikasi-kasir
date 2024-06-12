@@ -14,15 +14,15 @@ Public Class Form1
     End Sub
 
     Sub Koneksi()
-        Conn = New OdbcConnection("DSN=db_kasir") ' Ganti dengan DSN yang Anda buat
-        If Conn.State = ConnectionState.Closed Then
-            Conn.Open()
+        conn = New OdbcConnection("DSN=db_kasir") ' Ganti dengan DSN yang Anda buat
+        If conn.State = ConnectionState.Closed Then
+            conn.Open()
         End If
     End Sub
 
     Sub TampilBarang()
-        Da = New OdbcDataAdapter("SELECT * FROM tb_barang", Conn)
-        Ds = New DataSet()
+        da = New OdbcDataAdapter("SELECT * FROM tb_barang", conn)
+        ds = New DataSet()
         Da.Fill(Ds, "tb_barang")
         DataGridView1.DataSource = Ds.Tables("tb_barang")
     End Sub
@@ -31,25 +31,40 @@ Public Class Form1
         Dim id As Integer = Integer.Parse(TextBox1.Text)
         Dim jumlah As Integer = Integer.Parse(TextBox2.Text)
         Dim merk = TextBox3.Text.Trim()
+
+        Dim varian As String = ""
+        If RadioButton1.Checked Then
+            varian = "botol"
+        ElseIf RadioButton2.Checked Then
+            varian = "kaleng"
+        Else
+            MessageBox.Show("Pilih Varian Minuman", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         If merk <> "" Then
-            If Not MerkExists(merk) Then
+            If Not MerkExists(merk, varian) Then
                 MessageBox.Show("Merk tidak tersedia", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
         End If
+
         ' Kurangi stok barang
-        cmd = New OdbcCommand("UPDATE tb_barang SET stok_barang = stok_barang - ? WHERE id_barang = ?", Conn)
+        cmd = New OdbcCommand("UPDATE tb_barang SET stok_barang = stok_barang - ? WHERE id_minuman = ? AND varian_minuman = ?", conn)
         cmd.Parameters.AddWithValue("stok", jumlah)
         cmd.Parameters.AddWithValue("id", id)
-        cmd.Parameters.AddWithValue("merk", merk)
+        cmd.Parameters.AddWithValue("varian", varian)
         cmd.ExecuteNonQuery()
+
+
         ' Refresh data grid
         Call TampilBarang()
     End Sub
-    Function MerkExists(ByVal merk As String) As Boolean
+    Function MerkExists(ByVal merk As String, ByVal varian As String) As Boolean
         Dim exists As Boolean = False
-        cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_barang WHERE nama_barang = ?", conn)
+        cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_barang WHERE merk_minuman = ? AND varian_minuman = ?", conn)
         cmd.Parameters.AddWithValue("merk", merk)
+        cmd.Parameters.AddWithValue("varian", varian)
         exists = Convert.ToInt32(cmd.ExecuteScalar()) > 0
         Return exists
     End Function
