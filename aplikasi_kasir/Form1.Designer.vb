@@ -28,6 +28,8 @@ Partial Class Form1
         Label1 = New Label()
         Label2 = New Label()
         DataGridView1 = New DataGridView()
+        Label3 = New Label()
+        TextBox3 = New TextBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -40,7 +42,7 @@ Partial Class Form1
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(179, 93)
+        TextBox2.Location = New Point(179, 129)
         TextBox2.Name = "TextBox2"
         TextBox2.Size = New Size(304, 31)
         TextBox2.TabIndex = 1
@@ -49,7 +51,7 @@ Partial Class Form1
         ' 
         Button1.Location = New Point(514, 39)
         Button1.Name = "Button1"
-        Button1.Size = New Size(436, 85)
+        Button1.Size = New Size(436, 121)
         Button1.TabIndex = 2
         Button1.Text = "BELI"
         Button1.UseVisualStyleBackColor = True
@@ -57,16 +59,16 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(80, 39)
+        Label1.Location = New Point(60, 42)
         Label1.Name = "Label1"
-        Label1.Size = New Size(90, 25)
+        Label1.Size = New Size(110, 25)
         Label1.TabIndex = 3
-        Label1.Text = "ID Barang"
+        Label1.Text = "ID Minuman"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(71, 93)
+        Label2.Location = New Point(71, 129)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 25)
         Label2.TabIndex = 4
@@ -75,17 +77,35 @@ Partial Class Form1
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(179, 152)
+        DataGridView1.Location = New Point(179, 215)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
         DataGridView1.Size = New Size(771, 225)
         DataGridView1.TabIndex = 5
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(38, 84)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(132, 25)
+        Label3.TabIndex = 6
+        Label3.Text = "Merk Minuman"
+        ' 
+        ' TextBox3
+        ' 
+        TextBox3.Location = New Point(179, 84)
+        TextBox3.Name = "TextBox3"
+        TextBox3.Size = New Size(304, 31)
+        TextBox3.TabIndex = 7
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1039, 581)
+        Controls.Add(TextBox3)
+        Controls.Add(Label3)
         Controls.Add(DataGridView1)
         Controls.Add(Label2)
         Controls.Add(Label1)
@@ -105,5 +125,7 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label3 As Label
+    Friend WithEvents TextBox3 As TextBox
 
 End Class
