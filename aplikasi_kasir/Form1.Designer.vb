@@ -172,7 +172,7 @@ Partial Class Form1
         DataGridView2.Location = New Point(217, 253)
         DataGridView2.Name = "DataGridView2"
         DataGridView2.RowHeadersWidth = 62
-        DataGridView2.Size = New Size(304, 108)
+        DataGridView2.Size = New Size(304, 36)
         DataGridView2.TabIndex = 14
         ' 
         ' Label6

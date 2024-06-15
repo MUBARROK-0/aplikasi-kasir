@@ -11,11 +11,24 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call Koneksi()
         Call TampilBarang()
+
         If ComboBox1.Items.Count = 0 Then
             ComboBox1.Items.Add("kecil")
             ComboBox1.Items.Add("sedang")
             ComboBox1.Items.Add("besar")
         End If
+
+        ' Set AutoGenerateColumns to False
+        DataGridView2.AutoGenerateColumns = False
+        ' Add the Harga column
+        Dim hargaColumn As New DataGridViewTextBoxColumn()
+        hargaColumn.Name = "harga_minuman"
+        hargaColumn.HeaderText = "Harga"
+        hargaColumn.DataPropertyName = "harga_minuman"
+        DataGridView2.Columns.Add(hargaColumn)
+
+        DataGridView2.ColumnHeadersVisible = False
+
     End Sub
 
     Sub Koneksi()
@@ -102,6 +115,30 @@ Public Class Form1
         Return stok
     End Function
 
+    Function GetVarian(ByVal id As Integer) As String
+        Dim varian As String = ""
+        cmd = New OdbcCommand("SELECT varian_minuman FROM tb_pembeli WHERE id_minuman = ?", conn)
+        cmd.Parameters.AddWithValue("id", id)
+        dr = cmd.ExecuteReader()
+        If dr.Read() Then
+            varian = dr("varian_minuman").ToString()
+        End If
+        dr.Close()
+        Return varian
+    End Function
+
+    Function GetUkuran(ByVal id As Integer) As String
+        Dim ukuran As String = ""
+        cmd = New OdbcCommand("SELECT ukuran_minuman FROM tb_pembeli WHERE id_minuman = ?", conn)
+        cmd.Parameters.AddWithValue("id", id)
+        dr = cmd.ExecuteReader()
+        If dr.Read() Then
+            ukuran = dr("ukuran_minuman").ToString()
+        End If
+        dr.Close()
+        Return ukuran
+    End Function
+
     Sub TampilHarga(ByVal id As Integer, ByVal varian As String, ByVal ukuran As String)
         da = New OdbcDataAdapter("SELECT harga_minuman FROM tb_pembeli WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
         da.SelectCommand.Parameters.AddWithValue("id", id)
@@ -127,6 +164,17 @@ Public Class Form1
     End Sub
 
     Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        If Not String.IsNullOrEmpty(TextBox1.Text) Then
+            Dim id As Integer = Integer.Parse(TextBox1.Text)
+            Dim varian As String = GetVarian(id)
+            Dim ukuran As String = GetUkuran(id)
+            ' Ambil harga minuman untuk id tertentu dengan varian dan ukuran yang sesuai
+            Call TampilHarga(id, varian, ukuran)
+        End If
 
     End Sub
 End Class
