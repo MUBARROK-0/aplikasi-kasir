@@ -35,6 +35,7 @@ Partial Class Form1
         RadioButton2 = New RadioButton()
         ComboBox1 = New ComboBox()
         Label5 = New Label()
+        Button2 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -153,11 +154,21 @@ Partial Class Form1
         Label5.TabIndex = 12
         Label5.Text = "Ukuran Minuman"
         ' 
+        ' Button2
+        ' 
+        Button2.Location = New Point(229, 622)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(112, 34)
+        Button2.TabIndex = 13
+        Button2.Text = "RESET"
+        Button2.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1039, 751)
+        Controls.Add(Button2)
         Controls.Add(Label5)
         Controls.Add(ComboBox1)
         Controls.Add(RadioButton2)
@@ -191,5 +202,6 @@ Partial Class Form1
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents Button2 As Button
 
 End Class
