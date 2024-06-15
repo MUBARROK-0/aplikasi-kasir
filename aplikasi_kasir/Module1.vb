@@ -6,7 +6,7 @@ Module Module1
     Public Conn As New OdbcConnection
 
     Public Sub Koneksi()
-        Conn = New OdbcConnection("DSN=db_kasir;multipleActiveResultSets=true")
+        Conn = New OdbcConnection("DSN=aplikasi_kasir;multipleActiveResultSets=true")
         Conn.Open()
         If Conn.State = ConnectionState.Open Then
 

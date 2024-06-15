@@ -17,17 +17,17 @@ Public Class Form1
     End Sub
 
     Sub Koneksi()
-        conn = New OdbcConnection("DSN=db_kasir") ' Ganti dengan DSN yang Anda buat
+        conn = New OdbcConnection("DSN=aplikasi_kasir") ' Ganti dengan DSN yang Anda buat
         If conn.State = ConnectionState.Closed Then
             conn.Open()
         End If
     End Sub
 
     Sub TampilBarang()
-        da = New OdbcDataAdapter("SELECT * FROM tb_barang", conn)
+        da = New OdbcDataAdapter("SELECT * FROM tb_pembeli", conn)
         ds = New DataSet()
-        Da.Fill(Ds, "tb_barang")
-        DataGridView1.DataSource = Ds.Tables("tb_barang")
+        da.Fill(ds, "tb_pembeli")
+        DataGridView1.DataSource = ds.Tables("tb_pembeli")
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -55,7 +55,7 @@ Public Class Form1
         End If
 
         ' Kurangi stok barang
-        cmd = New OdbcCommand("UPDATE tb_barang SET stok_barang = stok_barang - ? WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
+        cmd = New OdbcCommand("UPDATE tb_pembeli SET stok_minuman = stok_minuman - ? WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
         cmd.Parameters.AddWithValue("stok", jumlah)
         cmd.Parameters.AddWithValue("id", id)
         cmd.Parameters.AddWithValue("varian", varian)
@@ -68,7 +68,7 @@ Public Class Form1
     End Sub
     Function MerkExists(ByVal merk As String, ByVal varian As String, ByVal ukuran As String) As Boolean
         Dim exists As Boolean = False
-        cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_barang WHERE merk_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
+        cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_pembeli WHERE merk_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
         cmd.Parameters.AddWithValue("merk", merk)
         cmd.Parameters.AddWithValue("varian", varian)
         cmd.Parameters.AddWithValue("ukuran", ukuran)
