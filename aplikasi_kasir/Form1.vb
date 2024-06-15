@@ -11,9 +11,11 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call Koneksi()
         Call TampilBarang()
-        ComboBox1.Items.Add("kecil")
-        ComboBox1.Items.Add("sedang")
-        ComboBox1.Items.Add("besar")
+        If ComboBox1.Items.Count = 0 Then
+            ComboBox1.Items.Add("kecil")
+            ComboBox1.Items.Add("sedang")
+            ComboBox1.Items.Add("besar")
+        End If
     End Sub
 
     Sub Koneksi()
@@ -75,4 +77,19 @@ Public Class Form1
         exists = Convert.ToInt32(cmd.ExecuteScalar()) > 0
         Return exists
     End Function
+
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        If RadioButton2.Checked Then
+            ComboBox1.Items.Clear()
+            ComboBox1.Items.Add("kecil")
+            ComboBox1.SelectedItem = "kecil"
+            MessageBox.Show("Varian kaleng hanya tersedia ukuran kecil", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            ComboBox1.Items.Clear()
+            ComboBox1.Items.Add("kecil")
+            ComboBox1.Items.Add("sedang")
+            ComboBox1.Items.Add("besar")
+        End If
+    End Sub
+
 End Class
