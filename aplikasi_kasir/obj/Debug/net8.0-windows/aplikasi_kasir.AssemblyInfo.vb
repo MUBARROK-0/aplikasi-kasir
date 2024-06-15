@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("aplikasi_kasir"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e3d037be6d4f0803c0babffc17509a5a515e726"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8b85c6dceb0174a96396ea1b3527c751b818a36"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("aplikasi_kasir"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("aplikasi_kasir"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

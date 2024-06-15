@@ -56,6 +56,13 @@ Public Class Form1
             End If
         End If
 
+        ' Cek stok barang
+        Dim stok As Integer = CekStok(id, varian, ukuran)
+        If stok < jumlah Then
+            MessageBox.Show("Maaf stok tidak mencukupi", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
         ' Kurangi stok barang
         cmd = New OdbcCommand("UPDATE tb_pembeli SET stok_minuman = stok_minuman - ? WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
         cmd.Parameters.AddWithValue("stok", jumlah)
@@ -76,6 +83,20 @@ Public Class Form1
         cmd.Parameters.AddWithValue("ukuran", ukuran)
         exists = Convert.ToInt32(cmd.ExecuteScalar()) > 0
         Return exists
+    End Function
+
+    Function CekStok(ByVal id As Integer, ByVal varian As String, ByVal ukuran As String) As Integer
+        Dim stok As Integer = 0
+        cmd = New OdbcCommand("SELECT stok_minuman FROM tb_pembeli WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
+        cmd.Parameters.AddWithValue("id", id)
+        cmd.Parameters.AddWithValue("varian", varian)
+        cmd.Parameters.AddWithValue("ukuran", ukuran)
+        dr = cmd.ExecuteReader()
+        If dr.Read() Then
+            stok = Convert.ToInt32(dr("stok_minuman"))
+        End If
+        dr.Close()
+        Return stok
     End Function
 
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
