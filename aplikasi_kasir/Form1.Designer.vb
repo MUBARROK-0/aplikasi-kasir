@@ -36,7 +36,10 @@ Partial Class Form1
         ComboBox1 = New ComboBox()
         Label5 = New Label()
         Button2 = New Button()
+        DataGridView2 = New DataGridView()
+        Label6 = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TextBox1
@@ -48,7 +51,7 @@ Partial Class Form1
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(217, 222)
+        TextBox2.Location = New Point(217, 387)
         TextBox2.Name = "TextBox2"
         TextBox2.Size = New Size(304, 31)
         TextBox2.TabIndex = 1
@@ -57,7 +60,7 @@ Partial Class Form1
         ' 
         Button1.Location = New Point(577, 39)
         Button1.Name = "Button1"
-        Button1.Size = New Size(373, 214)
+        Button1.Size = New Size(373, 193)
         Button1.TabIndex = 2
         Button1.Text = "BELI"
         Button1.UseVisualStyleBackColor = True
@@ -74,7 +77,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(71, 222)
+        Label2.Location = New Point(71, 387)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 25)
         Label2.TabIndex = 4
@@ -83,7 +86,7 @@ Partial Class Form1
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(217, 313)
+        DataGridView1.Location = New Point(217, 439)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
         DataGridView1.Size = New Size(733, 225)
@@ -92,7 +95,7 @@ Partial Class Form1
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(38, 81)
+        Label3.Location = New Point(38, 91)
         Label3.Name = "Label3"
         Label3.Size = New Size(132, 25)
         Label3.TabIndex = 6
@@ -100,7 +103,7 @@ Partial Class Form1
         ' 
         ' TextBox3
         ' 
-        TextBox3.Location = New Point(217, 81)
+        TextBox3.Location = New Point(217, 91)
         TextBox3.Name = "TextBox3"
         TextBox3.Size = New Size(304, 31)
         TextBox3.TabIndex = 7
@@ -108,7 +111,7 @@ Partial Class Form1
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(30, 129)
+        Label4.Location = New Point(30, 142)
         Label4.Name = "Label4"
         Label4.Size = New Size(140, 25)
         Label4.TabIndex = 8
@@ -117,7 +120,7 @@ Partial Class Form1
         ' RadioButton1
         ' 
         RadioButton1.AutoSize = True
-        RadioButton1.Location = New Point(217, 129)
+        RadioButton1.Location = New Point(217, 142)
         RadioButton1.Name = "RadioButton1"
         RadioButton1.Size = New Size(79, 29)
         RadioButton1.TabIndex = 9
@@ -128,7 +131,7 @@ Partial Class Form1
         ' RadioButton2
         ' 
         RadioButton2.AutoSize = True
-        RadioButton2.Location = New Point(346, 131)
+        RadioButton2.Location = New Point(359, 142)
         RadioButton2.Name = "RadioButton2"
         RadioButton2.Size = New Size(90, 29)
         RadioButton2.TabIndex = 10
@@ -140,7 +143,7 @@ Partial Class Form1
         ' 
         ComboBox1.FormattingEnabled = True
         ComboBox1.Items.AddRange(New Object() {"Kecil", "Sedang", "Besar"})
-        ComboBox1.Location = New Point(217, 173)
+        ComboBox1.Location = New Point(217, 199)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(304, 33)
         ComboBox1.TabIndex = 11
@@ -148,7 +151,7 @@ Partial Class Form1
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(22, 173)
+        Label5.Location = New Point(22, 199)
         Label5.Name = "Label5"
         Label5.Size = New Size(148, 25)
         Label5.TabIndex = 12
@@ -156,18 +159,38 @@ Partial Class Form1
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(229, 622)
+        Button2.Location = New Point(577, 253)
         Button2.Name = "Button2"
-        Button2.Size = New Size(112, 34)
+        Button2.Size = New Size(373, 89)
         Button2.TabIndex = 13
         Button2.Text = "RESET"
         Button2.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView2.Location = New Point(217, 253)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowHeadersWidth = 62
+        DataGridView2.Size = New Size(304, 108)
+        DataGridView2.TabIndex = 14
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(110, 253)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(60, 25)
+        Label6.TabIndex = 15
+        Label6.Text = "Harga"
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1039, 751)
+        Controls.Add(Label6)
+        Controls.Add(DataGridView2)
         Controls.Add(Button2)
         Controls.Add(Label5)
         Controls.Add(ComboBox1)
@@ -185,6 +208,7 @@ Partial Class Form1
         Name = "Form1"
         Text = "Form1"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -203,5 +227,7 @@ Partial Class Form1
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents Label6 As Label
 
 End Class

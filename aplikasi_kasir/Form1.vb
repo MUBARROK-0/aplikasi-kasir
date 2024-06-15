@@ -74,7 +74,10 @@ Public Class Form1
 
         ' Refresh data grid
         Call TampilBarang()
+        ' Tampilkan harga di DataGridView2
+        Call TampilHarga(id, varian, ukuran)
     End Sub
+
     Function MerkExists(ByVal merk As String, ByVal varian As String, ByVal ukuran As String) As Boolean
         Dim exists As Boolean = False
         cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_pembeli WHERE merk_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
@@ -99,6 +102,16 @@ Public Class Form1
         Return stok
     End Function
 
+    Sub TampilHarga(ByVal id As Integer, ByVal varian As String, ByVal ukuran As String)
+        da = New OdbcDataAdapter("SELECT harga_minuman FROM tb_pembeli WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
+        da.SelectCommand.Parameters.AddWithValue("id", id)
+        da.SelectCommand.Parameters.AddWithValue("varian", varian)
+        da.SelectCommand.Parameters.AddWithValue("ukuran", ukuran)
+        ds = New DataSet()
+        da.Fill(ds, "harga_minuman")
+        DataGridView2.DataSource = ds.Tables("harga_minuman")
+    End Sub
+
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         If RadioButton2.Checked Then
             ComboBox1.Items.Clear()
@@ -113,4 +126,7 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+
+    End Sub
 End Class
