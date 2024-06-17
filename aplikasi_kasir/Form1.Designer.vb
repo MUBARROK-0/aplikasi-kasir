@@ -39,6 +39,7 @@ Partial Class Form1
         DataGridView2 = New DataGridView()
         Label6 = New Label()
         TextBox4 = New TextBox()
+        Label7 = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -179,27 +180,37 @@ Partial Class Form1
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(110, 253)
+        Label6.Location = New Point(22, 253)
         Label6.Name = "Label6"
-        Label6.Size = New Size(60, 25)
+        Label6.Size = New Size(147, 25)
         Label6.TabIndex = 15
-        Label6.Text = "Harga"
+        Label6.Text = "Harga per 1 Item"
         ' 
         ' TextBox4
         ' 
-        TextBox4.Font = New Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        TextBox4.Location = New Point(577, 163)
+        TextBox4.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        TextBox4.Location = New Point(217, 364)
         TextBox4.Multiline = True
         TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(373, 46)
+        TextBox4.Size = New Size(304, 33)
         TextBox4.TabIndex = 16
         TextBox4.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(68, 364)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(102, 25)
+        Label7.TabIndex = 17
+        Label7.Text = "Total Harga"
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(987, 751)
+        Controls.Add(Label7)
         Controls.Add(TextBox4)
         Controls.Add(Label6)
         Controls.Add(DataGridView2)
@@ -242,5 +253,6 @@ Partial Class Form1
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Label7 As Label
 
 End Class

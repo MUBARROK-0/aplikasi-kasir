@@ -8,6 +8,8 @@ Public Class Form1
     Dim da As OdbcDataAdapter
     Dim ds As DataSet
 
+    Private isResetting As Boolean = False
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call Koneksi()
         Call TampilBarang()
@@ -29,6 +31,8 @@ Public Class Form1
 
         DataGridView2.ColumnHeadersVisible = False
     End Sub
+
+    Private isRestting As Boolean = False
 
     Sub Koneksi()
         conn = New OdbcConnection("DSN=aplikasi_kasir") ' Ganti dengan DSN yang Anda buat
@@ -171,10 +175,10 @@ Public Class Form1
         Return harga
     End Function
 
-    Function UkuranExists( ByVal id As Integer, varian As String, ByVal ukuran As String) As Boolean
+    Function UkuranExists(ByVal id As Integer, varian As String, ByVal ukuran As String) As Boolean
         Dim exists As Boolean = False
         cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_pembeli WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
-        cmd.Parameters.AddWithValue("id", ID)
+        cmd.Parameters.AddWithValue("id", id)
         cmd.Parameters.AddWithValue("varian", varian)
         cmd.Parameters.AddWithValue("ukuran", ukuran)
         exists = Convert.ToInt32(cmd.ExecuteScalar()) > 0
@@ -208,6 +212,8 @@ Public Class Form1
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        If isResetting Then Return ' Jika sedang reset, keluar dari subroutine
+
         Dim varian As String = ""
         If RadioButton1.Checked Then
             varian = "botol"
@@ -215,13 +221,45 @@ Public Class Form1
             varian = "kaleng"
         End If
 
-        Dim ukuran As String = ComboBox1.SelectedItem.ToString()
+        If ComboBox1.SelectedItem IsNot Nothing Then
+            Dim ukuran As String = ComboBox1.SelectedItem.ToString()
 
-        If Not String.IsNullOrEmpty(TextBox1.Text) Then
-            Dim id As Integer = Integer.Parse(TextBox1.Text)
-            If Not UkuranExists(id, varian, ukuran) Then
-                MessageBox.Show("Maaf ukuran yang dipilih tidak sesuai dengan id yang dipilih", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If Not String.IsNullOrEmpty(TextBox1.Text) Then
+                Dim id As Integer = Integer.Parse(TextBox1.Text)
+                If Not UkuranExists(id, varian, ukuran) Then
+                    MessageBox.Show("Maaf ukuran yang dipilih tidak sesuai dengan id yang dipilih", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End If
+        Else
+            MessageBox.Show("Pilih ukuran terlebih dahulu", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        ' Set isResetting to True
+        isResetting = True
+
+        ' Reset TextBoxes
+        TextBox1.Text = String.Empty
+        TextBox2.Text = String.Empty
+        TextBox3.Text = String.Empty
+        TextBox4.Text = String.Empty
+
+        ' Reset ComboBox
+        ComboBox1.SelectedIndex = -1
+
+        ' Reset RadioButtons
+        RadioButton1.Checked = False
+        RadioButton2.Checked = False
+
+        ' Clear DataGridViews
+        DataGridView2.DataSource = Nothing
+
+        ' Optionally, you might want to reset any other controls or variables
+
+        ' Set isResetting back to False
+        isResetting = False
+
     End Sub
 End Class
