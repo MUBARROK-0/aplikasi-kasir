@@ -185,8 +185,6 @@ Public Class Form1
         Return exists
     End Function
 
-
-
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         If RadioButton2.Checked Then
             ComboBox1.Items.Clear()
@@ -261,5 +259,33 @@ Public Class Form1
         ' Set isResetting back to False
         isResetting = False
 
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        ' Pastikan TextBox2 tidak kosong
+        If Not String.IsNullOrEmpty(TextBox2.Text) Then
+            ' Cek apakah TextBox1 juga tidak kosong (ID barang terisi)
+            If Not String.IsNullOrEmpty(TextBox1.Text) Then
+                Dim id As Integer = Integer.Parse(TextBox1.Text)
+                Dim varian As String = ""
+                ' Tentukan varian berdasarkan RadioButton yang dipilih
+                If RadioButton1.Checked Then
+                    varian = "botol"
+                ElseIf RadioButton2.Checked Then
+                    varian = "kaleng"
+                End If
+                Dim ukuran As String = ComboBox1.SelectedItem.ToString()
+
+                ' Hitung total harga
+                Dim jumlah As Integer = Integer.Parse(TextBox2.Text)
+                Dim hargaSatuan As Decimal = GetHargaSatuan(id, varian, ukuran)
+                Dim totalHarga As Decimal = hargaSatuan * jumlah
+
+                ' Tampilkan total harga di TextBox4
+                TextBox4.Text = totalHarga.ToString("C")
+            Else
+                MessageBox.Show("Mohon masukkan ID barang terlebih dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        End If
     End Sub
 End Class
