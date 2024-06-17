@@ -28,7 +28,6 @@ Public Class Form1
         DataGridView2.Columns.Add(hargaColumn)
 
         DataGridView2.ColumnHeadersVisible = False
-
     End Sub
 
     Sub Koneksi()
@@ -43,6 +42,16 @@ Public Class Form1
         ds = New DataSet()
         da.Fill(ds, "tb_pembeli")
         DataGridView1.DataSource = ds.Tables("tb_pembeli")
+    End Sub
+
+    Sub TampilHarga(ByVal id As Integer, ByVal varian As String, ByVal ukuran As String)
+        da = New OdbcDataAdapter("SELECT harga_minuman FROM tb_pembeli WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
+        da.SelectCommand.Parameters.AddWithValue("id", id)
+        da.SelectCommand.Parameters.AddWithValue("varian", varian)
+        da.SelectCommand.Parameters.AddWithValue("ukuran", ukuran)
+        ds = New DataSet()
+        da.Fill(ds, "harga_minuman")
+        DataGridView2.DataSource = ds.Tables("harga_minuman")
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -61,6 +70,11 @@ Public Class Form1
         End If
 
         Dim ukuran As String = ComboBox1.SelectedItem.ToString()
+        ' Cek apakah ukuran tersedia
+        If Not UkuranExists(id, varian, ukuran) Then
+            MessageBox.Show("Maaf ukuran tersebut tidak tersedia", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
 
         If merk <> "" Then
             If Not MerkExists(merk, varian, ukuran) Then
@@ -84,6 +98,10 @@ Public Class Form1
         cmd.Parameters.AddWithValue("ukuran", ukuran)
         cmd.ExecuteNonQuery()
 
+        ' Hitung total harga dan tampilkan
+        Dim hargaSatuan As Decimal = GetHargaSatuan(id, varian, ukuran)
+        Dim totalHarga As Decimal = hargaSatuan * jumlah
+        TextBox4.Text = totalHarga.ToString("C")
 
         ' Refresh data grid
         Call TampilBarang()
@@ -139,15 +157,31 @@ Public Class Form1
         Return ukuran
     End Function
 
-    Sub TampilHarga(ByVal id As Integer, ByVal varian As String, ByVal ukuran As String)
-        da = New OdbcDataAdapter("SELECT harga_minuman FROM tb_pembeli WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
-        da.SelectCommand.Parameters.AddWithValue("id", id)
-        da.SelectCommand.Parameters.AddWithValue("varian", varian)
-        da.SelectCommand.Parameters.AddWithValue("ukuran", ukuran)
-        ds = New DataSet()
-        da.Fill(ds, "harga_minuman")
-        DataGridView2.DataSource = ds.Tables("harga_minuman")
-    End Sub
+    Function GetHargaSatuan(ByVal id As Integer, ByVal varian As String, ByVal ukuran As String) As Decimal
+        Dim harga As Decimal = 0
+        cmd = New OdbcCommand("SELECT harga_minuman FROM tb_pembeli WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
+        cmd.Parameters.AddWithValue("id", id)
+        cmd.Parameters.AddWithValue("varian", varian)
+        cmd.Parameters.AddWithValue("ukuran", ukuran)
+        dr = cmd.ExecuteReader()
+        If dr.Read() Then
+            harga = Convert.ToDecimal(dr("harga_minuman"))
+        End If
+        dr.Close()
+        Return harga
+    End Function
+
+    Function UkuranExists( ByVal id As Integer, varian As String, ByVal ukuran As String) As Boolean
+        Dim exists As Boolean = False
+        cmd = New OdbcCommand("SELECT COUNT(*) FROM tb_pembeli WHERE id_minuman = ? AND varian_minuman = ? AND ukuran_minuman = ?", conn)
+        cmd.Parameters.AddWithValue("id", ID)
+        cmd.Parameters.AddWithValue("varian", varian)
+        cmd.Parameters.AddWithValue("ukuran", ukuran)
+        exists = Convert.ToInt32(cmd.ExecuteScalar()) > 0
+        Return exists
+    End Function
+
+
 
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
         If RadioButton2.Checked Then
@@ -163,10 +197,6 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
-
-    End Sub
-
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         If Not String.IsNullOrEmpty(TextBox1.Text) Then
             Dim id As Integer = Integer.Parse(TextBox1.Text)
@@ -175,6 +205,23 @@ Public Class Form1
             ' Ambil harga minuman untuk id tertentu dengan varian dan ukuran yang sesuai
             Call TampilHarga(id, varian, ukuran)
         End If
+    End Sub
 
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim varian As String = ""
+        If RadioButton1.Checked Then
+            varian = "botol"
+        ElseIf RadioButton2.Checked Then
+            varian = "kaleng"
+        End If
+
+        Dim ukuran As String = ComboBox1.SelectedItem.ToString()
+
+        If Not String.IsNullOrEmpty(TextBox1.Text) Then
+            Dim id As Integer = Integer.Parse(TextBox1.Text)
+            If Not UkuranExists(id, varian, ukuran) Then
+                MessageBox.Show("Maaf ukuran yang dipilih tidak sesuai dengan id yang dipilih", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
     End Sub
 End Class

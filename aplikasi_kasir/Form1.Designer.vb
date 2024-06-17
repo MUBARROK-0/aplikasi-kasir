@@ -38,6 +38,7 @@ Partial Class Form1
         Button2 = New Button()
         DataGridView2 = New DataGridView()
         Label6 = New Label()
+        TextBox4 = New TextBox()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -51,7 +52,7 @@ Partial Class Form1
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(217, 387)
+        TextBox2.Location = New Point(217, 311)
         TextBox2.Name = "TextBox2"
         TextBox2.Size = New Size(304, 31)
         TextBox2.TabIndex = 1
@@ -60,7 +61,7 @@ Partial Class Form1
         ' 
         Button1.Location = New Point(577, 39)
         Button1.Name = "Button1"
-        Button1.Size = New Size(373, 193)
+        Button1.Size = New Size(373, 49)
         Button1.TabIndex = 2
         Button1.Text = "BELI"
         Button1.UseVisualStyleBackColor = True
@@ -77,7 +78,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(71, 387)
+        Label2.Location = New Point(71, 311)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 25)
         Label2.TabIndex = 4
@@ -86,10 +87,10 @@ Partial Class Form1
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(217, 439)
+        DataGridView1.Location = New Point(30, 502)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(733, 225)
+        DataGridView1.Size = New Size(920, 225)
         DataGridView1.TabIndex = 5
         ' 
         ' Label3
@@ -159,9 +160,9 @@ Partial Class Form1
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(577, 253)
+        Button2.Location = New Point(577, 104)
         Button2.Name = "Button2"
-        Button2.Size = New Size(373, 89)
+        Button2.Size = New Size(373, 41)
         Button2.TabIndex = 13
         Button2.Text = "RESET"
         Button2.UseVisualStyleBackColor = True
@@ -184,11 +185,22 @@ Partial Class Form1
         Label6.TabIndex = 15
         Label6.Text = "Harga"
         ' 
+        ' TextBox4
+        ' 
+        TextBox4.Font = New Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        TextBox4.Location = New Point(577, 163)
+        TextBox4.Multiline = True
+        TextBox4.Name = "TextBox4"
+        TextBox4.Size = New Size(373, 46)
+        TextBox4.TabIndex = 16
+        TextBox4.TextAlign = HorizontalAlignment.Center
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1039, 751)
+        ClientSize = New Size(987, 751)
+        Controls.Add(TextBox4)
         Controls.Add(Label6)
         Controls.Add(DataGridView2)
         Controls.Add(Button2)
@@ -229,5 +241,6 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label6 As Label
+    Friend WithEvents TextBox4 As TextBox
 
 End Class
