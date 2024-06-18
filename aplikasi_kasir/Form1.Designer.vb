@@ -40,37 +40,45 @@ Partial Class Form1
         Label6 = New Label()
         TextBox4 = New TextBox()
         Label7 = New Label()
+        Label8 = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(217, 39)
+        TextBox1.BorderStyle = BorderStyle.FixedSingle
+        TextBox1.Location = New Point(185, 154)
+        TextBox1.Multiline = True
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(304, 31)
+        TextBox1.Size = New Size(304, 36)
         TextBox1.TabIndex = 0
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(217, 311)
+        TextBox2.BorderStyle = BorderStyle.FixedSingle
+        TextBox2.Location = New Point(725, 211)
+        TextBox2.Multiline = True
         TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(304, 31)
+        TextBox2.Size = New Size(304, 36)
         TextBox2.TabIndex = 1
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(577, 39)
+        Button1.BackColor = Color.SkyBlue
+        Button1.FlatStyle = FlatStyle.System
+        Button1.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button1.Location = New Point(185, 381)
         Button1.Name = "Button1"
-        Button1.Size = New Size(373, 49)
+        Button1.Size = New Size(137, 52)
         Button1.TabIndex = 2
         Button1.Text = "BELI"
-        Button1.UseVisualStyleBackColor = True
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(60, 39)
+        Label1.Location = New Point(50, 154)
         Label1.Name = "Label1"
         Label1.Size = New Size(110, 25)
         Label1.TabIndex = 3
@@ -79,7 +87,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(71, 311)
+        Label2.Location = New Point(606, 214)
         Label2.Name = "Label2"
         Label2.Size = New Size(99, 25)
         Label2.TabIndex = 4
@@ -88,16 +96,16 @@ Partial Class Form1
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(30, 502)
+        DataGridView1.Location = New Point(64, 468)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(920, 225)
+        DataGridView1.Size = New Size(965, 245)
         DataGridView1.TabIndex = 5
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(38, 91)
+        Label3.Location = New Point(28, 211)
         Label3.Name = "Label3"
         Label3.Size = New Size(132, 25)
         Label3.TabIndex = 6
@@ -105,15 +113,17 @@ Partial Class Form1
         ' 
         ' TextBox3
         ' 
-        TextBox3.Location = New Point(217, 91)
+        TextBox3.BorderStyle = BorderStyle.FixedSingle
+        TextBox3.Location = New Point(185, 211)
+        TextBox3.Multiline = True
         TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(304, 31)
+        TextBox3.Size = New Size(304, 36)
         TextBox3.TabIndex = 7
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(30, 142)
+        Label4.Location = New Point(20, 269)
         Label4.Name = "Label4"
         Label4.Size = New Size(140, 25)
         Label4.TabIndex = 8
@@ -122,9 +132,10 @@ Partial Class Form1
         ' RadioButton1
         ' 
         RadioButton1.AutoSize = True
-        RadioButton1.Location = New Point(217, 142)
+        RadioButton1.FlatStyle = FlatStyle.System
+        RadioButton1.Location = New Point(185, 269)
         RadioButton1.Name = "RadioButton1"
-        RadioButton1.Size = New Size(79, 29)
+        RadioButton1.Size = New Size(90, 30)
         RadioButton1.TabIndex = 9
         RadioButton1.TabStop = True
         RadioButton1.Text = "Botol"
@@ -133,9 +144,10 @@ Partial Class Form1
         ' RadioButton2
         ' 
         RadioButton2.AutoSize = True
-        RadioButton2.Location = New Point(359, 142)
+        RadioButton2.FlatStyle = FlatStyle.System
+        RadioButton2.Location = New Point(317, 269)
         RadioButton2.Name = "RadioButton2"
-        RadioButton2.Size = New Size(90, 29)
+        RadioButton2.Size = New Size(101, 30)
         RadioButton2.TabIndex = 10
         RadioButton2.TabStop = True
         RadioButton2.Text = "Kaleng"
@@ -143,9 +155,10 @@ Partial Class Form1
         ' 
         ' ComboBox1
         ' 
+        ComboBox1.FlatStyle = FlatStyle.System
         ComboBox1.FormattingEnabled = True
         ComboBox1.Items.AddRange(New Object() {"Kecil", "Sedang", "Besar"})
-        ComboBox1.Location = New Point(217, 199)
+        ComboBox1.Location = New Point(185, 321)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(304, 33)
         ComboBox1.TabIndex = 11
@@ -153,7 +166,7 @@ Partial Class Form1
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(22, 199)
+        Label5.Location = New Point(12, 321)
         Label5.Name = "Label5"
         Label5.Size = New Size(148, 25)
         Label5.TabIndex = 12
@@ -161,17 +174,20 @@ Partial Class Form1
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(577, 104)
+        Button2.BackColor = Color.SkyBlue
+        Button2.FlatStyle = FlatStyle.System
+        Button2.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button2.Location = New Point(352, 381)
         Button2.Name = "Button2"
-        Button2.Size = New Size(373, 41)
+        Button2.Size = New Size(137, 52)
         Button2.TabIndex = 13
         Button2.Text = "RESET"
-        Button2.UseVisualStyleBackColor = True
+        Button2.UseVisualStyleBackColor = False
         ' 
         ' DataGridView2
         ' 
         DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView2.Location = New Point(217, 253)
+        DataGridView2.Location = New Point(725, 154)
         DataGridView2.Name = "DataGridView2"
         DataGridView2.RowHeadersWidth = 62
         DataGridView2.Size = New Size(304, 36)
@@ -180,36 +196,52 @@ Partial Class Form1
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(22, 253)
+        Label6.Location = New Point(586, 154)
         Label6.Name = "Label6"
-        Label6.Size = New Size(147, 25)
+        Label6.Size = New Size(119, 25)
         Label6.TabIndex = 15
-        Label6.Text = "Harga per 1 Item"
+        Label6.Text = "Harga Satuan"
         ' 
         ' TextBox4
         ' 
+        TextBox4.BorderStyle = BorderStyle.FixedSingle
         TextBox4.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        TextBox4.Location = New Point(217, 364)
+        TextBox4.Location = New Point(725, 269)
         TextBox4.Multiline = True
         TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(304, 33)
+        TextBox4.Size = New Size(304, 85)
         TextBox4.TabIndex = 16
         TextBox4.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(68, 364)
+        Label7.Location = New Point(603, 273)
         Label7.Name = "Label7"
         Label7.Size = New Size(102, 25)
         Label7.TabIndex = 17
         Label7.Text = "Total Harga"
         ' 
+        ' Label8
+        ' 
+        Label8.BackColor = Color.FromArgb(CByte(255), CByte(128), CByte(0))
+        Label8.BorderStyle = BorderStyle.Fixed3D
+        Label8.Font = New Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label8.ForeColor = Color.White
+        Label8.Location = New Point(28, 9)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(1001, 72)
+        Label8.TabIndex = 18
+        Label8.Text = "SODA SPARK!!"
+        Label8.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(987, 751)
+        BackColor = Color.FloralWhite
+        ClientSize = New Size(1056, 751)
+        Controls.Add(Label8)
         Controls.Add(Label7)
         Controls.Add(TextBox4)
         Controls.Add(Label6)
@@ -254,5 +286,6 @@ Partial Class Form1
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
 
 End Class

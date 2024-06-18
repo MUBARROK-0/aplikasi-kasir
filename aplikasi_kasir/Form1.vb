@@ -9,6 +9,7 @@ Public Class Form1
     Dim ds As DataSet
 
     Private isResetting As Boolean = False
+    Private originalid As Integer
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call Koneksi()
@@ -30,9 +31,11 @@ Public Class Form1
         DataGridView2.Columns.Add(hargaColumn)
 
         DataGridView2.ColumnHeadersVisible = False
-    End Sub
 
-    Private isRestting As Boolean = False
+        If Integer.TryParse(TextBox1.Text, originalid) Then
+            FocusRowById(originalid)
+        End If
+    End Sub
 
     Sub Koneksi()
         conn = New OdbcConnection("DSN=aplikasi_kasir") ' Ganti dengan DSN yang Anda buat
@@ -111,6 +114,12 @@ Public Class Form1
         Call TampilBarang()
         ' Tampilkan harga di DataGridView2
         Call TampilHarga(id, varian, ukuran)
+
+        If originalid = id Then
+            FocusRowById(id)
+        Else
+            originalid = id
+        End If
     End Sub
 
     Function MerkExists(ByVal merk As String, ByVal varian As String, ByVal ukuran As String) As Boolean
@@ -206,6 +215,7 @@ Public Class Form1
             Dim ukuran As String = GetUkuran(id)
             ' Ambil harga minuman untuk id tertentu dengan varian dan ukuran yang sesuai
             Call TampilHarga(id, varian, ukuran)
+            FocusRowById(id)
         End If
     End Sub
 
@@ -287,5 +297,16 @@ Public Class Form1
                 MessageBox.Show("Mohon masukkan ID barang terlebih dahulu", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         End If
+    End Sub
+
+    Private Sub FocusRowById(id As Integer)
+        For Each row As DataGridViewRow In DataGridView1.Rows
+            If Convert.ToInt32(row.Cells("id_minuman").Value) = id Then
+                DataGridView1.ClearSelection()
+                row.Selected = True
+                DataGridView1.FirstDisplayedScrollingRowIndex = row.Index
+                Exit For
+            End If
+        Next
     End Sub
 End Class
